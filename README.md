@@ -8,7 +8,7 @@ AWS CodePipeline multiple manual approvals
 Serverless application that enable multiple manual approvals on AWS CodePipeline.
 About [AWS CodePipeline manual approval](https://docs.aws.amazon.com/codepipeline/latest/userguide/approvals.html).
 
-Many thank to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Rule' with AWS CodePipeline](https://www.trek10.com/blog/enforcing-two-person-rule-aws-codepipeline/).
+Many thanks to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Rule' with AWS CodePipeline](https://www.trek10.com/blog/enforcing-two-person-rule-aws-codepipeline/).
 
 ## Prerequisite
 
