@@ -5,34 +5,33 @@ const codepipeline = new AWS.CodePipeline();
 
 const putJobFailureResult = (jobId, msg, externalExecutionId) => {
   return codepipeline
-      .putJobFailureResult({
-        jobId: jobId,
-        failureDetails: {
-          message: msg,
-          type: 'JobFailed',
-          externalExecutionId: externalExecutionId,
-        },
-      })
-      .promise();
+    .putJobFailureResult({
+      jobId: jobId,
+      failureDetails: {
+        message: msg,
+        type: 'JobFailed',
+        externalExecutionId: externalExecutionId
+      }
+    })
+    .promise();
 };
 
-const doesDuplicatedApproverExist = (approvers) => {
-  return !!approvers &&
+const doesDuplicatedApproverExist = approvers => {
+  return (
+    !!approvers &&
     approvers.length > 0 &&
-    approvers.filter(a => approvers.indexOf(a) !== approvers.lastIndexOf(a)).length === 0;
+    approvers.filter(a => approvers.indexOf(a) !== approvers.lastIndexOf(a)).length === 0
+  );
 };
 
 exports.handler = async (event, context, callback) => {
-
   const job = event['CodePipeline.job'];
   const jobId = job.id;
 
   console.log(`Event: ${JSON.stringify(event)}`);
 
-  if (!!jobId)
-    console.log(`Code pipeline job id is [${jobId}]`);
-  else
-    context.fail(`Not found CodePipeline.job.id in event: [${event}]`);
+  if (!!jobId) console.log(`Code pipeline job id is [${jobId}]`);
+  else context.fail(`Not found CodePipeline.job.id in event: [${event}]`);
 
   try {
     const params = JSON.parse(job.data.actionConfiguration.configuration.UserParameters);
@@ -59,9 +58,7 @@ exports.handler = async (event, context, callback) => {
     const actionStates = approvalState.actionStates;
     console.log(`actionStates: ${JSON.stringify(actionStates)}`);
 
-    const approvers = actionStates
-          .map(_ => _.latestExecution && _.latestExecution.lastUpdatedBy)
-          .filter(_ => !!_);
+    const approvers = actionStates.map(_ => _.latestExecution && _.latestExecution.lastUpdatedBy).filter(_ => !!_);
 
     if (!approvers || approvers.length === 0) {
       const msg = `No approver! Action Stages: [${actionStates}]`;
@@ -69,12 +66,11 @@ exports.handler = async (event, context, callback) => {
       context.fail(msg);
     }
 
-    if (doesDuplicatedApproverExist(approvers))
-      throw Error(`Duplicated approver exists! Approvers: [${approvers}]`);
+    if (doesDuplicatedApproverExist(approvers)) throw Error(`Duplicated approver exists! Approvers: [${approvers}]`);
 
     await codepipeline.putJobSuccessResult({ jobId: jobId }).promise();
 
-    callback(null, "Put job success");
+    callback(null, 'Put job success');
   } catch (err) {
     console.error(err);
     await putJobFailureResult(jobId, err.message, context.invokeid);
