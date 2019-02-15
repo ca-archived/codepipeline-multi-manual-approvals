@@ -16,9 +16,15 @@ describe('approval-checker.js', () => {
       });
     });
 
+    context('with duplicated approver', () => {
+      it('returns false', () => {
+        expect(doesDuplicatedApproverExist(['user1', 'user2', 'user3', 'user1'])).to.be.eq(false);
+      });
+    });
+
     context('with empty approver array', () => {
       it('return false', () => {
-        expect (doesDuplicatedApproverExist([])).to.be.eq(false);
+        expect(doesDuplicatedApproverExist([])).to.be.eq(false);
       });
     });
   });
