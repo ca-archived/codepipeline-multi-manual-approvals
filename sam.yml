@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'Allow multiple manual approvals on AWS CloudPipeline'
+Resources:
+  approvalChecker:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: functions/approval-checker.handler
+      Runtime: nodejs8.10
+      CodeUri: ./
+      Description:
+      MemorySize: 128
+      Timeout: 10
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - codepipeline:GetPipelineState
+                - codepipeline:GetPipeline
+              Resource:
+                - !Sub arn:aws:codepipeline:${AWS::Region}:${AWS::AccountId}:*
+            - Effect: Allow
+              Action:
+                - codepipeline:PutJobFailureResult
+                - codepipeline:PutJobSuccessResult
+              Resource: '*'

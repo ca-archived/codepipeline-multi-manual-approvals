@@ -1,0 +1,17 @@
+{
+  "name": "codepipeline-multi-manual-approvals",
+  "version": "1.0.0",
+  "author": "phucnh",
+  "license": "UNLICENSED",
+  "scripts": {
+    "fmt": "prettier --config ./configs/prettier.config.js --write \"**/**.{js,json}\"",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.403.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.16.4",
+    "rewire": "^4.0.1"
+  }
+}

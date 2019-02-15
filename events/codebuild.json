@@ -1,0 +1,21 @@
+{
+    "CodePipeline.job": {
+        "id": "00421a36-7b6f-40c5-88a6-5b8ae68a68c7",
+        "accountId": "hoge",
+        "data": {
+            "actionConfiguration": {
+                "configuration": {
+                    "FunctionName": "codepipeline-multi-approvals-approvalChecker-1FSB4MC0C5100",
+                    "UserParameters": "{\"codepipelinename\":\"adtechhack2019\",\"approvalstagename\":\"Approvals\"}"
+                }
+            },
+            "inputArtifacts": [],
+            "outputArtifacts": [],
+            "artifactCredentials": {
+                "sessionToken": "xxx",
+                "secretAccessKey": "xxx",
+                "accessKeyId": "xxx"
+            }
+        }
+    }
+}
