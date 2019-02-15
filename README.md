@@ -49,4 +49,4 @@ For examples:
 
 ## Contribute
 
-[WIP]
+Please, create a pull request, I will check as soon as possible.
