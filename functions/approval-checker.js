@@ -17,11 +17,11 @@ const putJobFailureResult = (jobId, msg, externalExecutionId) => {
 };
 
 const doesDuplicatedApproverExist = approvers => {
-  return (
-    !!approvers &&
-    approvers.length > 0 &&
-    approvers.filter(a => approvers.indexOf(a) !== approvers.lastIndexOf(a)).length === 0
-  );
+  if (!Array.isArray(approvers)) return true;
+
+  if (approvers.length === 0 || approvers.length === 1) return true;
+
+  return approvers.filter(a => approvers.indexOf(a) !== approvers.lastIndexOf(a)).length > 0;
 };
 
 exports.handler = async (event, context, callback) => {
