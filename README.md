@@ -1,4 +1,4 @@
-AWS CodePipeline multi manual approvals
+AWS CodePipeline multiple manual approvals
 -----
 
 ![](https://codebuild.ap-northeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiZ21xTkVHQWlqSUJrY21UWUZGSUV4TExYNVVxa3gzcGE5eHlYV1d1clRHY2d0WUJOckNiVWtVUjVzakd1MnBPZVkxV3F1R25iS3NGRkhKdzFKQjIxUGVrPSIsIml2UGFyYW1ldGVyU3BlYyI6IlZQL3ZvakRxaktRRXJSdmsiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)

@@ -25,3 +25,9 @@ Resources:
                 - codepipeline:PutJobFailureResult
                 - codepipeline:PutJobSuccessResult
               Resource: '*'
+Outputs:
+  approvalCheckerFnName:
+    Description: 'The name of approval check function'
+    Value: !Ref approvalChecker
+    Export:
+      Name: !Sub ${AWS::StackName}-approvalChecker
