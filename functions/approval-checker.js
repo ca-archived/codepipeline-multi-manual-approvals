@@ -73,8 +73,6 @@ exports.handler = async (event, context, callback) => {
     callback(null, 'Put job success');
   } catch (err) {
     console.error(err);
-    await putJobFailureResult(jobId, err.message, context.invokeid);
-
     callback(err);
   }
 };
