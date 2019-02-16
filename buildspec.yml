@@ -3,7 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
+      - pip install --user aws-sam-cli
       - npm install -g yarn
   build:
     commands:
+      - USER_BASE_PATH=$(python -m site --user-base)
+      - export PATH=$PATH:$USER_BASE_PATH/bin
       - make build
