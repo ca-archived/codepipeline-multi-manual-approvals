@@ -36,7 +36,7 @@ For examples:
 
 - Create a multiple approvals stage with 2 manual approval actions:
 
-|![create-multiple-approvals-stage.jpg](htps://raw.githubusercontent.com/CyberAgent/codepipeline-multi-manual-approvals/master/docs/create-multiple-approvals-stage.jpg)|
+|![create-multiple-approvals-stage.jpg](https://raw.githubusercontent.com/CyberAgent/codepipeline-multi-manual-approvals/master/docs/create-multiple-approvals-stage.jpg)|
 |:--:|
 |*Multiple approvals stage that named: `Approvals`*|
 
