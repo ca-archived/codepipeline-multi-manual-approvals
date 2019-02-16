@@ -17,6 +17,12 @@ Many thanks to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Ru
 - [aws-cli](https://aws.amazon.com/cli/)
 - [aws-sam-cli v0.11.0 or above](https://github.com/awslabs/aws-sam-cli)
 
+## Launch by AWS SAR
+
+The simplest way to launch this application in your account is using [Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/).
+
+[Launch now](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:461248263104:applications~codepipeline-multi-manual-approvals)
+
 ## Setup AWS CodePipeline
 
 AWS CodePipeline supports [AWS Lambda function invoking action](https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html).
