@@ -2,7 +2,7 @@
   "name": "codepipeline-multi-manual-approvals",
   "version": "1.0.0",
   "author": "phucnh",
-  "license": "UNLICENSED",
+  "license": "GPL-3.0",
   "scripts": {
     "fmt": "prettier --config ./configs/prettier.config.js --write \"**/**.{js,json}\"",
     "test": "mocha"
