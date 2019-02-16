@@ -10,7 +10,7 @@ About [AWS CodePipeline manual approval](https://docs.aws.amazon.com/codepipelin
 
 Many thanks to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Rule' with AWS CodePipeline](https://www.trek10.com/blog/enforcing-two-person-rule-aws-codepipeline/).
 
-## Prerequisite
+## Prerequisites
 
 - nodejs8.10
 - [yarn](https://yarnpkg.com)
