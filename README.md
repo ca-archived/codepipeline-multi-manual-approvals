@@ -13,6 +13,7 @@ Many thanks to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Ru
 ## Prerequisite
 
 - nodejs8.10
+- [yarn](https://yarnpkg.com)
 - [aws-cli](https://aws.amazon.com/cli/)
 - [aws-sam-cli](https://github.com/awslabs/aws-sam-cli)
 
