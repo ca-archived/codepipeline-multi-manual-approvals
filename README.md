@@ -50,4 +50,4 @@ For examples:
 
 ## Contribute
 
-Please, create a pull request, I will check as soon as possible.
+Please, create a pull request and assign to [me](https://github.com/phucnh), I will check as soon as possible.
