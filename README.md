@@ -15,7 +15,7 @@ Many thanks to Forrest Brazeal for brilliant idea: [Enforcing the 'Two-Person Ru
 - nodejs8.10
 - [yarn](https://yarnpkg.com)
 - [aws-cli](https://aws.amazon.com/cli/)
-- [aws-sam-cli](https://github.com/awslabs/aws-sam-cli)
+- [aws-sam-cli v0.11.0 or above](https://github.com/awslabs/aws-sam-cli)
 
 ## Setup AWS CodePipeline
 
