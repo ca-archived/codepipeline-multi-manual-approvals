@@ -1,5 +1,3 @@
 .tern-project
-.sam/*
+.aws-sam
 node_modules
-
-!.sam/.gitkeep
