@@ -48,6 +48,11 @@ For examples:
 
 - The `User parameters` is `{"codepipelinename":"ExamplePipeline","approvalstagename":"Approvals"}`
 
-## Contribute
+## TODOs
+
+- [ ] Public on Serverless Application Repository in Tokyo region (Please, AWS 🙏)
+- [ ] Run locally without real AWS CodePipeline setup
+
+## Contributing
 
 Please, create a pull request and assign to [me](https://github.com/phucnh), I will check as soon as possible.
