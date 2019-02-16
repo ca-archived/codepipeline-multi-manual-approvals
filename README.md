@@ -36,13 +36,13 @@ For examples:
 
 - Create a multiple approvals stage with 2 manual approval actions:
 
-|![create-multiple-approvals-stage.jpg](./docs/create-multiple-approvals-stage.jpg)|
+|![create-multiple-approvals-stage.jpg](https://raw.githubusercontent.com/CyberAgent/codepipeline-multi-manual-approvals/master/docs/create-approval-checker-action.jpg)|
 |:--:|
 |*Multiple approvals stage that named: `Approvals`*|
 
 - `ApprovalChecker` action setting is as follows:
 
-|![create-approval-checker-action.jpg](./docs/create-approval-checker-action.jpg)|
+|![create-approval-checker-action.jpg](https://raw.githubusercontent.com/CyberAgent/codepipeline-multi-manual-approvals/master/docs/create-multiple-approvals-stage.jpg)|
 |:--:|
 |*`ApprovalChecker` action's setting*|
 

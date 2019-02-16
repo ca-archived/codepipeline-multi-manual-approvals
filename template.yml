@@ -6,8 +6,8 @@ Metadata:
     Description: 'Serverless application that enable multiple manual approvals on AWS CodePipeline.'
     Author: phucnh
     SpdxLicenseId: MIT
-    LicenseUrl: LICENSE
-    ReadmeUrl: README.md
+    LicenseUrl: s3://codepipeline-multi-manual-approvals/metadata/LICENSE
+    ReadmeUrl: s3://codepipeline-multi-manual-approvals/metadata/README.md
     Labels: ['codepipeline', 'approval-process', 'multiple-manual-approvals']
     HomePageUrl: https://github.com/CyberAgent/codepipeline-multi-manual-approvals.git
     SemanticVersion: 0.0.1
