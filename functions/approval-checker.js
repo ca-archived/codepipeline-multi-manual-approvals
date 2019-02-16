@@ -34,24 +34,35 @@ exports.handler = async (event, context, callback) => {
   else context.fail(`Not found CodePipeline.job.id in event: [${event}]`);
 
   try {
-    const params = JSON.parse(job.data.actionConfiguration.configuration.UserParameters);
+    const userParams = job.data.actionConfiguration.configuration.UserParameters;
+    const params = JSON.parse(userParams);
+
+    if (!params || !params.codepipelinename || !params.approvalstagename) {
+      const msg = 'User parameters is missing or in wrong format. ' +
+            'Please ensure that User parameters must in following format: ' +
+            '{"codepipelinename":"YOUR PIPELINE NAME","approvalstagename":"YOUR MANUAL APPROVAL STAGE NAME"}. ' +
+            `User parameters: [${userParams}].`;
+      await putJobFailureResult(jobId, msg, context.invokeid);
+      context.fail(msg);
+    }
 
     const pipelineName = params.codepipelinename;
+    const approvalStateName = params.approvalstagename;
+
     const statesResult = await codepipeline.getPipelineState({ name: pipelineName }).promise();
 
     const stageStates = statesResult.stageStates;
     if (!stageStates && stageStates.length === 0) {
       const msg = `No stage stages of pipeline [${pipelineName}]`;
-      putJobFailureResult(jobId, msg, context.invokeid);
+      await putJobFailureResult(jobId, msg, context.invokeid);
       context.fail(msg);
     }
 
-    const approvalStateName = params.approvalstagename;
     const approvalState = stageStates.filter(_ => _.stageName === approvalStateName)[0];
 
     if (!approvalState) {
       const msg = `Pipeline does not contain [${approvalStateName}] stage`;
-      putJobFailureResult(jobId, msg, context.invokeid);
+      await putJobFailureResult(jobId, msg, context.invokeid);
       context.fail(msg);
     }
 
@@ -62,7 +73,7 @@ exports.handler = async (event, context, callback) => {
 
     if (!approvers || approvers.length === 0) {
       const msg = `No approver! Action Stages: [${actionStates}]`;
-      putJobFailureResult(jobId, msg, context.invokeid);
+      await putJobFailureResult(jobId, msg, context.invokeid);
       context.fail(msg);
     }
 
@@ -70,7 +81,7 @@ exports.handler = async (event, context, callback) => {
 
     await codepipeline.putJobSuccessResult({ jobId: jobId }).promise();
 
-    callback(null, 'Put job success');
+    callback(null, `Put job ${jobId} success`);
   } catch (err) {
     console.error(err);
     callback(err);
