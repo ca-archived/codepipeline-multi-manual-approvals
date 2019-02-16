@@ -77,7 +77,11 @@ exports.handler = async (event, context, callback) => {
       context.fail(msg);
     }
 
-    if (doesDuplicatedApproverExist(approvers)) throw Error(`Duplicated approver exists! Approvers: [${approvers}]`);
+    if (doesDuplicatedApproverExist(approvers)) {
+      const msg = `Duplicated approver exists! Approvers: [${approvers}]`;
+      await putJobFailureResult(jobId, msg, context.invokeid);
+      context.fail(msg);
+    }
 
     await codepipeline.putJobSuccessResult({ jobId: jobId }).promise();
 
