@@ -1,5 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: codepipeline-multi-manual-approvals
+    Description: 'Serverless application that enable multiple manual approvals on AWS CodePipeline.'
+    Author: phucnh
+    SpdxLicenseId: MIT
+    LicenseUrl: LICENSE
+    ReadmeUrl: README.md
+    Labels: ['codepipeline', 'approval-process', 'multiple-manual-approvals']
+    HomePageUrl: https://github.com/CyberAgent/codepipeline-multi-manual-approvals.git
+    SemanticVersion: 0.0.1
+    SourceCodeUrl: https://github.com/CyberAgent/codepipeline-multi-manual-approvals.git
 Description: 'Allow multiple manual approvals on AWS CloudPipeline'
 Resources:
   approvalChecker:
